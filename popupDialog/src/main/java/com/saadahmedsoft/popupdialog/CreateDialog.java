@@ -29,22 +29,17 @@ public class CreateDialog {
     private final Context context;
     private final Styles style;
     private final Dialog dialog;
-
     private String heading, description, positiveButtonText, negativeButtonText;
-    private ImageView icon;
     private boolean cancelable = true;
-
     @ColorInt
     @Nullable
     private Integer tint;
-
     @ColorRes
     @Nullable
-    private Integer positiveButtonTextColor, negativeButtonTextColor, headingTextColor, descriptionTextColor;
-
+    private Integer positiveButtonTextColor, negativeButtonTextColor, headingTextColor, descriptionTextColor, iconTint;
     @DrawableRes
     @Nullable
-    private Integer dialogBackground, positiveButtonBackground, negativeButtonBackground;
+    private Integer icon, dialogBackground, positiveButtonBackground, negativeButtonBackground;
 
     private OnDialogButtonClickListener listener;
 
@@ -96,14 +91,12 @@ public class CreateDialog {
     }
 
     public CreateDialog setDialogIcon(@DrawableRes int icon) {
-        this.icon.setImageResource(icon);
+        this.icon = icon;
         return instance;
     }
 
     public CreateDialog setDialogIconTint(@ColorRes int iconTint) {
-        if (this.icon != null) {
-            this.icon.setColorFilter(ContextCompat.getColor(context, iconTint), android.graphics.PorterDuff.Mode.SRC_IN);
-        }
+        this.iconTint = iconTint;
         return instance;
     }
 
@@ -170,6 +163,12 @@ public class CreateDialog {
             }
             case IOS: {
                 dialogStyleOne(R.layout.dialog_ios);
+                show();
+                break;
+            }
+            case STANDARD: {
+                dialogStyleTwo(R.layout.dialog_standard);
+                show();
                 break;
             }
         }
@@ -201,8 +200,8 @@ public class CreateDialog {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
                 .setTitle(heading)
                 .setMessage(description)
-                .setPositiveButton(positiveButtonText, (dialogInterface, i) -> listener.onAction())
-                .setNegativeButton(negativeButtonText, ((dialogInterface, i) -> listener.onClose()));
+                .setPositiveButton(positiveButtonText, (dialogInterface, i) -> listener.onPositiveClicked())
+                .setNegativeButton(negativeButtonText, ((dialogInterface, i) -> listener.onNegativeClicked()));
         alertDialog.setCancelable(cancelable);
         alertDialog.show();
     }
@@ -239,7 +238,21 @@ public class CreateDialog {
         if (negativeButtonBackground != null) {
             btnNegative.setBackgroundResource(negativeButtonBackground);
         }
-        show();
+
+        btnPositive.setOnClickListener(view -> listener.onPositiveClicked());
+        btnNegative.setOnClickListener(view -> listener.onNegativeClicked());
+    }
+
+    private void dialogStyleTwo(@LayoutRes int layout) {
+        dialogStyleOne(layout);
+        ImageView icon = dialog.findViewById(R.id.iv_icon);
+
+        if (this.icon != null) {
+            icon.setImageResource(this.icon);
+        }
+        if (this.iconTint != null) {
+            icon.setColorFilter(ContextCompat.getColor(context, iconTint), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private void setContentView(@LayoutRes int layout) {
