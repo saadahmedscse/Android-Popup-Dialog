@@ -135,12 +135,12 @@ public class CreateDialog {
         return instance;
     }
 
+    public void showDialog() {
+        if (style == Styles.PROGRESS) showProgressDialog();
+    }
+
     public void showDialog(OnDialogButtonClickListener listener) {
         switch (style) {
-            case PROGRESS: {
-                showProgressDialog();
-                break;
-            }
             case ALERT_DIALOG: {
                 showAlertDialog(listener);
                 break;
