@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGrey">#777777</color>
+    <color name="colorLightGrey">#E6E6E6</color>
+    <color name="colorDarkGrey">#202020</color>
+
+    <color name="static_main">#215C5C</color>
+    <color name="static_white">#FFFFFF</color>
+    <color name="static_grey">#5E5E5E</color>
+    <color name="static_black">#000000</color>
+    <color name="static_transparent">#00000000</color>
+
+    <color name="colorBlue">#226DFF</color>
+    <color name="colorGreen">#00FF7F</color>
+    <color name="colorTransparentGreen">#7500FF7F</color>
+    <color name="colorOrange">#FF9246</color>
+    <color name="colorYellow">#FFEE4D</color>
+    <color name="colorRed">#FF1616</color>
+</resources>
