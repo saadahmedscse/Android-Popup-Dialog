@@ -238,6 +238,12 @@ public class CreateDialog {
         if (negativeButtonBackground != null) {
             btnNegative.setBackgroundResource(negativeButtonBackground);
         }
+        if (headingTextColor != null) {
+            heading.setTextColor(ContextCompat.getColor(context, headingTextColor));
+        }
+        if (descriptionTextColor != null) {
+            description.setTextColor(ContextCompat.getColor(context, descriptionTextColor));
+        }
 
         btnPositive.setOnClickListener(view -> listener.onPositiveClicked());
         btnNegative.setOnClickListener(view -> listener.onNegativeClicked());
