@@ -184,8 +184,8 @@ public class CreateDialog {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
                 .setTitle(heading)
                 .setMessage(description)
-                .setPositiveButton(positiveButtonText, (dialogInterface, i) -> listener.onPositiveClicked())
-                .setNegativeButton(negativeButtonText, ((dialogInterface, i) -> listener.onNegativeClicked()));
+                .setPositiveButton(positiveButtonText, (dialogInterface, i) -> listener.onPositiveClicked(dialog))
+                .setNegativeButton(negativeButtonText, ((dialogInterface, i) -> listener.onNegativeClicked(dialog)));
         alertDialog.setCancelable(cancelable);
         alertDialog.show();
     }
@@ -229,8 +229,10 @@ public class CreateDialog {
             description.setTextColor(ContextCompat.getColor(context, descriptionTextColor));
         }
 
-        btnPositive.setOnClickListener(view -> listener.onPositiveClicked());
-        btnNegative.setOnClickListener(view -> listener.onNegativeClicked());
+        btnPositive.setOnClickListener(view -> listener.onPositiveClicked(dialog));
+        btnNegative.setOnClickListener(view -> listener.onNegativeClicked(dialog));
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     private void dialogStyleTwo(@LayoutRes int layout, OnDialogButtonClickListener listener) {

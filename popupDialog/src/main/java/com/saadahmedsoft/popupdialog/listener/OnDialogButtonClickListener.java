@@ -1,6 +1,8 @@
 package com.saadahmedsoft.popupdialog.listener;
 
+import android.app.Dialog;
+
 public interface OnDialogButtonClickListener {
-    void onPositiveClicked();
-    void onNegativeClicked();
+    void onPositiveClicked(Dialog dialog);
+    void onNegativeClicked(Dialog dialog);
 }
