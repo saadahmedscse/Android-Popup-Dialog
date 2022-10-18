@@ -1,5 +1,5 @@
 package com.saadahmedsoft.popupdialog;
 
 public enum Styles {
-    PROGRESS, DEFAULT
+    PROGRESS, DEFAULT, ALERT_DIALOG
 }

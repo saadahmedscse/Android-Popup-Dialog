@@ -3,6 +3,7 @@ package com.saadahmedsoft.popupdialog;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
@@ -14,7 +15,10 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+
+import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
 
 public class CreateDialog {
 
@@ -26,6 +30,7 @@ public class CreateDialog {
 
     private String heading, description, actionButtonText = "Submit", closeButtonText = "Cancel";
     private ImageView icon;
+    private boolean cancelable = true;
 
     @ColorInt
     @Nullable
@@ -35,16 +40,31 @@ public class CreateDialog {
     @Nullable
     private Integer dialogBackground, actionButtonBackground, closeButtonBackground;
 
+    private OnDialogButtonClickListener listener;
+
     private CreateDialog(Context context, Styles style, Dialog dialog) {
         this.context = context;
         this.style = style;
         this.dialog = dialog;
+    }
 
+    private CreateDialog(Context context, Styles style, Dialog dialog, OnDialogButtonClickListener listener) {
+        this.context = context;
+        this.style = style;
+        this.dialog = dialog;
+        this.listener = listener;
     }
 
     public static CreateDialog getInstance(Context context, Styles style, Dialog dialog) {
         if (instance == null) {
             instance = new CreateDialog(context, style, dialog);
+        }
+        return instance;
+    }
+
+    public static CreateDialog getInstance(Context context, Styles style, Dialog dialog, OnDialogButtonClickListener listener) {
+        if (instance == null) {
+            instance = new CreateDialog(context, style, dialog, listener);
         }
         return instance;
     }
@@ -82,6 +102,7 @@ public class CreateDialog {
     }
 
     public CreateDialog setCancelable(boolean cancelable) {
+        this.cancelable = cancelable;
         this.dialog.setCancelable(cancelable);
         return instance;
     }
@@ -144,13 +165,31 @@ public class CreateDialog {
                     progressBar.getIndeterminateDrawable().setColorFilter(tint, PorterDuff.Mode.SRC_IN);
                 }
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                show();
                 break;
             }
-            case DEFAULT: {
-                //dialog.setContentView(15);
+            case ALERT_DIALOG: {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
+                        .setTitle(heading)
+                        .setMessage(description)
+                        .setPositiveButton(actionButtonText, (dialogInterface, i) -> listener.onAction())
+                        .setNegativeButton(closeButtonText, ((dialogInterface, i) -> listener.onClose()));
+                alertDialog.setCancelable(cancelable);
+                alertDialog.show();
                 break;
             }
+        }
+    }
+    
+    public void dismissDialog() {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
+    
+    private void show() {
+        if (!dialog.isShowing()) {
+            dialog.show();
         }
     }
 }
