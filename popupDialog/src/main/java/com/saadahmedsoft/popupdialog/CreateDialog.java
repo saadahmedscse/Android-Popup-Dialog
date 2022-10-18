@@ -100,12 +100,12 @@ public class CreateDialog {
         return instance;
     }
 
-    public CreateDialog setHeadingButtonTextColor(@ColorRes int color) {
+    public CreateDialog setHeadingTextColor(@ColorRes int color) {
         this.headingTextColor = color;
         return instance;
     }
 
-    public CreateDialog setDescriptionButtonTextColor(@ColorRes int color) {
+    public CreateDialog setDescriptionTextColor(@ColorRes int color) {
         this.descriptionTextColor = color;
         return instance;
     }
