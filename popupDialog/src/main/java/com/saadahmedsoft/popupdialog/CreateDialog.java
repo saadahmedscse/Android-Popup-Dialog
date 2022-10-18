@@ -41,31 +41,15 @@ public class CreateDialog {
     @Nullable
     private Integer icon, dialogBackground, positiveButtonBackground, negativeButtonBackground;
 
-    private OnDialogButtonClickListener listener;
-
     private CreateDialog(Context context, Styles style, Dialog dialog) {
         this.context = context;
         this.style = style;
         this.dialog = dialog;
     }
 
-    private CreateDialog(Context context, Styles style, Dialog dialog, OnDialogButtonClickListener listener) {
-        this.context = context;
-        this.style = style;
-        this.dialog = dialog;
-        this.listener = listener;
-    }
-
     public static CreateDialog getInstance(Context context, Styles style, Dialog dialog) {
         if (instance == null) {
             instance = new CreateDialog(context, style, dialog);
-        }
-        return instance;
-    }
-
-    public static CreateDialog getInstance(Context context, Styles style, Dialog dialog, OnDialogButtonClickListener listener) {
-        if (instance == null) {
-            instance = new CreateDialog(context, style, dialog, listener);
         }
         return instance;
     }
@@ -151,23 +135,23 @@ public class CreateDialog {
         return instance;
     }
 
-    public void showDialog() {
+    public void showDialog(OnDialogButtonClickListener listener) {
         switch (style) {
             case PROGRESS: {
                 showProgressDialog();
                 break;
             }
             case ALERT_DIALOG: {
-                showAlertDialog();
+                showAlertDialog(listener);
                 break;
             }
             case IOS: {
-                dialogStyleOne(R.layout.dialog_ios);
+                dialogStyleOne(R.layout.dialog_ios, listener);
                 show();
                 break;
             }
             case STANDARD: {
-                dialogStyleTwo(R.layout.dialog_standard);
+                dialogStyleTwo(R.layout.dialog_standard, listener);
                 show();
                 break;
             }
@@ -196,7 +180,7 @@ public class CreateDialog {
         show();
     }
 
-    private void showAlertDialog() {
+    private void showAlertDialog(OnDialogButtonClickListener listener) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
                 .setTitle(heading)
                 .setMessage(description)
@@ -206,7 +190,7 @@ public class CreateDialog {
         alertDialog.show();
     }
 
-    private void dialogStyleOne(@LayoutRes int layout) {
+    private void dialogStyleOne(@LayoutRes int layout, OnDialogButtonClickListener listener) {
         setContentView(layout);
         TextView heading, description, btnNegative, btnPositive;
         ConstraintLayout root;
@@ -249,8 +233,8 @@ public class CreateDialog {
         btnNegative.setOnClickListener(view -> listener.onNegativeClicked());
     }
 
-    private void dialogStyleTwo(@LayoutRes int layout) {
-        dialogStyleOne(layout);
+    private void dialogStyleTwo(@LayoutRes int layout, OnDialogButtonClickListener listener) {
+        dialogStyleOne(layout, listener);
         ImageView icon = dialog.findViewById(R.id.iv_icon);
 
         if (this.icon != null) {
