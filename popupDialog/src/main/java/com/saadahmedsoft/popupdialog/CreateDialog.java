@@ -3,10 +3,17 @@ package com.saadahmedsoft.popupdialog;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 public class CreateDialog {
@@ -14,11 +21,19 @@ public class CreateDialog {
     @SuppressLint("StaticFieldLeak")
     private static CreateDialog instance = null;
     private final Context context;
-    private Styles style;
+    private final Styles style;
     private final Dialog dialog;
 
     private String heading, description, actionButtonText = "Submit", closeButtonText = "Cancel";
     private ImageView icon;
+
+    @ColorInt
+    @Nullable
+    private Integer tint, actionButtonTextColor, closeButtonTextColor, headingTextColor, descriptionTextColor;
+
+    @DrawableRes
+    @Nullable
+    private Integer dialogBackground, actionButtonBackground, closeButtonBackground;
 
     private CreateDialog(Context context, Styles style, Dialog dialog) {
         this.context = context;
@@ -71,10 +86,65 @@ public class CreateDialog {
         return instance;
     }
 
+    public CreateDialog setActionButtonTextColor(@ColorInt int color) {
+        this.actionButtonTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setCloseButtonTextColor(@ColorInt int color) {
+        this.closeButtonTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setHeadingButtonTextColor(@ColorInt int color) {
+        this.headingTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setDescriptionButtonTextColor(@ColorInt int color) {
+        this.descriptionTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setDialogBackground(@DrawableRes int background) {
+        this.dialogBackground = background;
+        return instance;
+    }
+
+    public CreateDialog setActionButtonBackground(@DrawableRes int background) {
+        this.actionButtonBackground = background;
+        return instance;
+    }
+
+    public CreateDialog setCloseButtonBackground(@DrawableRes int background) {
+        this.closeButtonBackground = background;
+        return instance;
+    }
+
+    public CreateDialog setTint(@ColorInt int tint) {
+//        if (style == Styles.PROGRESS) {
+//            ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
+//            progressBar.getIndeterminateDrawable().setColorFilter(tint, PorterDuff.Mode.SRC_IN);
+//        }
+        this.tint = tint;
+        return instance;
+    }
+
+    public CreateDialog setTimeout(long seconds) {
+        new Handler().postDelayed(dialog::dismiss, seconds * 1000);
+        return instance;
+    }
+
     public void showDialog() {
         switch (style) {
             case PROGRESS: {
-                //dialog.setContentView(156);
+                dialog.setContentView(R.layout.dialog_progress);
+                ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
+                if (tint != null) {
+                    progressBar.getIndeterminateDrawable().setColorFilter(tint, PorterDuff.Mode.SRC_IN);
+                }
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
                 break;
             }
             case DEFAULT: {
