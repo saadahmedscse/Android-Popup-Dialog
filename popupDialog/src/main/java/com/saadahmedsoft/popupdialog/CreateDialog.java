@@ -385,6 +385,7 @@ public class CreateDialog {
             }
             case ALERT: {
                 icon.setAnimation(R.raw.warning);
+                if (dismissButtonTextColor == null) btnDismiss.setTextColor(ContextCompat.getColor(context, R.color.colorDarkGrey));
                 btnDismiss.setBackgroundResource(R.drawable.ripple_bg_yellow_10);
                 break;
             }
