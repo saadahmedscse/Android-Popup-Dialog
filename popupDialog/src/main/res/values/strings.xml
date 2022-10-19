@@ -2,4 +2,5 @@
 <resources>
     <string name="positive">Submit</string>
     <string name="negative">Cancel</string>
+    <string name="dismiss">Dismiss</string>
 </resources>
