@@ -18,6 +18,12 @@ package com.saadahmedsoft.popupdialog.listener;
 
 import android.app.Dialog;
 
+/**
+ * Dialog Button Click Callback Class.
+ * Created by Saad Ahmed on 17-Oct-2022.
+ * This abstract class will give user's a callback of dialog button click
+ */
+
 public abstract class OnDialogButtonClickListener {
     public void onPositiveClicked(Dialog dialog) {}
     public void onNegativeClicked(Dialog dialog) {}
