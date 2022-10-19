@@ -22,15 +22,33 @@ import android.content.Context;
 
 public class PopupDialog {
 
+    /**
+     * Popup Dialog class.
+     * Created by Saad Ahmed on 17-May-2022.
+     * Github: https://github.com/saadahmedscse/Android-Popup-Dialog
+     * A custom android popup dialog library which provides you a lot of popup dialog and progress dialog with and without animation
+     */
+
     private final Dialog dialog;
     private final Context context;
     @SuppressLint("StaticFieldLeak")
     private static PopupDialog instance = null;
 
+    /**
+     * Private constructor of popup dialog
+     * @param context is required to create instance of dialog
+     */
+
     private PopupDialog(Context context) {
         this.context = context;
         dialog = new Dialog(context);
     }
+
+    /**
+     * Static function to get instance of popup dialog class
+     * @param context is required to create instance of popup dialog class
+     * @return instance of popup dialog class
+     */
 
     public static PopupDialog getInstance(Context context) {
         if (instance == null) {
@@ -39,10 +57,20 @@ public class PopupDialog {
         return instance;
     }
 
+    /**
+     * setStyle function will set the style which you want
+     * @param style is required to create instance of create dialog class
+     * @return instance of create dialog class
+     */
+
     public CreateDialog setStyle(Styles style) {
         instance = null;
         return CreateDialog.getInstance(context, style, dialog);
     }
+
+    /**
+     * Dismiss the dialog if it is showing
+     */
 
     public void dismissDialog() {
         if (dialog.isShowing()) {
