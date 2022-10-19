@@ -16,10 +16,12 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
 
 public class CreateDialog {
@@ -29,11 +31,20 @@ public class CreateDialog {
     private final Context context;
     private final Styles style;
     private final Dialog dialog;
-    private String heading, description, positiveButtonText, negativeButtonText;
+    private String heading, description, positiveButtonText, negativeButtonText, lottieFile;
     private boolean cancelable = true;
     @ColorInt
     @Nullable
     private Integer tint;
+    @Nullable
+    private Integer lottieRepeatCount;
+    @Nullable
+    private Float lottieAnimationSpeed;
+    @Nullable
+    private Long progressDialogTimeout;
+    @RawRes
+    @Nullable
+    private Integer lottieRaw;
     @ColorRes
     @Nullable
     private Integer positiveButtonTextColor, negativeButtonTextColor, headingTextColor, descriptionTextColor, iconTint;
@@ -135,13 +146,47 @@ public class CreateDialog {
         return instance;
     }
 
+    public CreateDialog setLottieAssetName(String assetName) {
+        this.lottieFile = assetName;
+        return instance;
+    }
+
+    public CreateDialog setLottieRawRes(@RawRes int rawRes) {
+        this.lottieRaw = rawRes;
+        return instance;
+    }
+
+    public CreateDialog setLottieRepeatCount(int repeatCount) {
+        this.lottieRepeatCount = repeatCount;
+        return instance;
+    }
+
+    public CreateDialog setLottieAnimationSpeed(float speed) {
+        this.lottieAnimationSpeed = speed;
+        return instance;
+    }
+
+    public CreateDialog setDialogTimeout(long seconds) {
+        this.progressDialogTimeout = seconds;
+        return instance;
+    }
+
     public void showDialog() {
-        if (style == Styles.PROGRESS) showProgressDialog();
+        switch (style) {
+            case PROGRESS: {
+                showProgressDialog(R.layout.dialog_progress);
+                break;
+            }
+            case LOTTIE_ANIMATION: {
+                showProgressDialog(R.layout.dialog_lottie);
+                break;
+            }
+        }
     }
 
     public void showDialog(OnDialogButtonClickListener listener) {
         switch (style) {
-            case ALERT_DIALOG: {
+            case ANDROID_DEFAULT: {
                 showAlertDialog(listener);
                 break;
             }
@@ -158,23 +203,36 @@ public class CreateDialog {
         }
     }
     
-    public void dismissDialog() {
-        if (dialog.isShowing()) {
-            dialog.dismiss();
-        }
-    }
-    
     private void show() {
         if (!dialog.isShowing()) {
+            instance = null;
             dialog.show();
         }
     }
 
-    private void showProgressDialog() {
-        setContentView(R.layout.dialog_progress);
-        ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
-        if (tint != null) {
+    private void showProgressDialog(@LayoutRes int layout) {
+        setContentView(layout);
+        if (tint != null && style == Styles.PROGRESS) {
+            ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
             progressBar.getIndeterminateDrawable().setColorFilter(tint, PorterDuff.Mode.SRC_IN);
+        }
+        if (style == Styles.LOTTIE_ANIMATION) {
+            LottieAnimationView lottieAnimation = dialog.findViewById(R.id.lottie_animation_view);
+            if (lottieFile != null) {
+                lottieAnimation.setAnimation(lottieFile);
+            }
+            if (lottieRaw != null) {
+                lottieAnimation.setAnimation(lottieRaw);
+            }
+            if (lottieRepeatCount != null) {
+                lottieAnimation.setRepeatMode(lottieRepeatCount);
+            }
+            if (lottieAnimationSpeed != null) {
+                lottieAnimation.setSpeed(lottieAnimationSpeed);
+            }
+        }
+        if (progressDialogTimeout != null) {
+            new Handler().postDelayed((Runnable) dialog::dismiss, progressDialogTimeout);
         }
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         show();
