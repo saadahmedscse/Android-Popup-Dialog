@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:padding="25dp"
+    android:background="@drawable/bg_white_10">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:lottie_autoPlay="true"
+        app:lottie_repeatCount="10000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/bold"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_icon" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/colorDarkGrey"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"/>
+
+    <TextView
+        android:id="@+id/btn_dismiss"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/ripple_bg_dark_grey_10"
+        android:gravity="center"
+        android:fontFamily="@font/bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
+        android:textColor="@color/static_white"
+        android:text="@string/dismiss"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
