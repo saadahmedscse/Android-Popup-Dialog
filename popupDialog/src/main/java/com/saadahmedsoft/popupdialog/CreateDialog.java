@@ -31,7 +31,7 @@ public class CreateDialog {
     private final Context context;
     private final Styles style;
     private final Dialog dialog;
-    private String heading, description, positiveButtonText, negativeButtonText, lottieFile;
+    private String heading, description, positiveButtonText, negativeButtonText, dismissButtonText, lottieFile;
     private boolean cancelable = true;
     @ColorInt
     @Nullable
@@ -47,10 +47,10 @@ public class CreateDialog {
     private Integer lottieRaw;
     @ColorRes
     @Nullable
-    private Integer positiveButtonTextColor, negativeButtonTextColor, headingTextColor, descriptionTextColor, iconTint;
+    private Integer positiveButtonTextColor, negativeButtonTextColor, dismissButtonTextColor, headingTextColor, descriptionTextColor, iconTint;
     @DrawableRes
     @Nullable
-    private Integer icon, dialogBackground, positiveButtonBackground, negativeButtonBackground;
+    private Integer icon, dialogBackground, positiveButtonBackground, negativeButtonBackground, dismissButtonBackground;
 
     private CreateDialog(Context context, Styles style, Dialog dialog) {
         this.context = context;
@@ -85,6 +85,41 @@ public class CreateDialog {
         return instance;
     }
 
+    public CreateDialog setDismissButtonText(String dismissButtonText) {
+        this.dismissButtonText = dismissButtonText;
+        return instance;
+    }
+
+    public CreateDialog setPositiveButtonTextColor(@ColorRes int color) {
+        this.positiveButtonTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setNegativeButtonTextColor(@ColorRes int color) {
+        this.negativeButtonTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setDismissButtonTextColor(@ColorRes int color) {
+        this.dismissButtonTextColor = color;
+        return instance;
+    }
+
+    public CreateDialog setPositiveButtonBackground(@DrawableRes int background) {
+        this.positiveButtonBackground = background;
+        return instance;
+    }
+
+    public CreateDialog setNegativeButtonBackground(@DrawableRes int background) {
+        this.negativeButtonBackground = background;
+        return instance;
+    }
+
+    public CreateDialog setDismissButtonBackground(@DrawableRes int background) {
+        this.dismissButtonBackground = background;
+        return instance;
+    }
+
     public CreateDialog setDialogIcon(@DrawableRes int icon) {
         this.icon = icon;
         return instance;
@@ -101,16 +136,6 @@ public class CreateDialog {
         return instance;
     }
 
-    public CreateDialog setPositiveButtonTextColor(@ColorRes int color) {
-        this.positiveButtonTextColor = color;
-        return instance;
-    }
-
-    public CreateDialog setNegativeButtonTextColor(@ColorRes int color) {
-        this.negativeButtonTextColor = color;
-        return instance;
-    }
-
     public CreateDialog setHeadingTextColor(@ColorRes int color) {
         this.headingTextColor = color;
         return instance;
@@ -123,16 +148,6 @@ public class CreateDialog {
 
     public CreateDialog setDialogBackground(@DrawableRes int background) {
         this.dialogBackground = background;
-        return instance;
-    }
-
-    public CreateDialog setPositiveButtonBackground(@DrawableRes int background) {
-        this.positiveButtonBackground = background;
-        return instance;
-    }
-
-    public CreateDialog setNegativeButtonBackground(@DrawableRes int background) {
-        this.negativeButtonBackground = background;
         return instance;
     }
 
@@ -197,6 +212,21 @@ public class CreateDialog {
             }
             case STANDARD: {
                 dialogStyleTwo(R.layout.dialog_standard, listener);
+                show();
+                break;
+            }
+            case SUCCESS: {
+                dialogStyleThree(Styles.SUCCESS, listener);
+                show();
+                break;
+            }
+            case FAILED: {
+                dialogStyleThree(Styles.FAILED, listener);
+                show();
+                break;
+            }
+            case ALERT: {
+                dialogStyleThree(Styles.ALERT, listener);
                 show();
                 break;
             }
@@ -303,6 +333,64 @@ public class CreateDialog {
         if (this.iconTint != null) {
             icon.setColorFilter(ContextCompat.getColor(context, iconTint), android.graphics.PorterDuff.Mode.SRC_IN);
         }
+    }
+
+    private void dialogStyleThree(Styles style, OnDialogButtonClickListener listener) {
+        setContentView(R.layout.dialog_success_failed_alert);
+
+        LottieAnimationView icon = dialog.findViewById(R.id.lottie_icon);
+        ConstraintLayout root = dialog.findViewById(R.id.root_layout);
+        TextView heading, description, btnDismiss;
+        heading = dialog.findViewById(R.id.tv_heading);
+        description = dialog.findViewById(R.id.tv_description);
+        btnDismiss = dialog.findViewById(R.id.btn_dismiss);
+
+        btnDismiss.setOnClickListener(view -> listener.onDismissClicked(dialog));
+
+        if (this.heading != null) {
+            heading.setText(this.heading);
+        }
+        if (this.description != null) {
+            description.setText(this.description);
+        }
+        if (dialogBackground != null) {
+            root.setBackgroundResource(dialogBackground);
+        }
+        if (dismissButtonBackground != null) {
+            btnDismiss.setBackgroundResource(dismissButtonBackground);
+        }
+        if (dismissButtonText != null) {
+            btnDismiss.setText(dismissButtonText);
+        }
+        if (dismissButtonTextColor != null) {
+            btnDismiss.setTextColor(ContextCompat.getColor(context, dismissButtonTextColor));
+        }
+        if (headingTextColor != null) {
+            heading.setTextColor(ContextCompat.getColor(context, headingTextColor));
+        }
+        if (descriptionTextColor != null) {
+            description.setTextColor(ContextCompat.getColor(context, descriptionTextColor));
+        }
+
+        switch (style) {
+            case SUCCESS: {
+                icon.setAnimation(R.raw.success);
+                btnDismiss.setBackgroundResource(R.drawable.ripple_bg_dark_grey_10);
+                break;
+            }
+            case FAILED: {
+                icon.setAnimation(R.raw.failed);
+                btnDismiss.setBackgroundResource(R.drawable.ripple_bg_red_10);
+                break;
+            }
+            case ALERT: {
+                icon.setAnimation(R.raw.warning);
+                btnDismiss.setBackgroundResource(R.drawable.ripple_bg_yellow_10);
+                break;
+            }
+        }
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     private void setContentView(@LayoutRes int layout) {
