@@ -16,6 +16,12 @@
 
 package com.saadahmedsoft.popupdialog;
 
+/**
+ * Dialog Style Enum.
+ * Created by Saad Ahmed on 17-Oct-2022.
+ * This enum will give user's a lot of styles to be implemented
+ */
+
 public enum Styles {
     PROGRESS, IOS, ANDROID_DEFAULT, STANDARD, LOTTIE_ANIMATION, SUCCESS, FAILED, ALERT
 }
