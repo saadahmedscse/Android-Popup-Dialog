@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 
-import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
-
 public class PopupDialog {
 
     private final Dialog dialog;
@@ -26,6 +24,13 @@ public class PopupDialog {
     }
 
     public CreateDialog setStyle(Styles style) {
+        instance = null;
         return CreateDialog.getInstance(context, style, dialog);
+    }
+
+    public void dismissDialog() {
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 }
