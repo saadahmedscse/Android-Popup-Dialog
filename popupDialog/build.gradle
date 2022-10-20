@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
+    id 'signing'
 }
 
 android {
@@ -14,6 +16,14 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    publishing {
+        singleVariant("release") {
+            // if you don't want sources/javadoc, remove these lines
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,9 +36,43 @@ android {
     }
 }
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.release
+                groupId 'com.saadahmedev.popup-dialog'
+                artifactId 'popup-dialog'
+                version '0.0.1' // or manually '1.0'
+                artifact(sourceJar)
+                artifact("$buildDir/outputs/aar/bar-release.aar")
+            }
+        }
+        repositories {
+            maven {
+                url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+
+                credentials {
+                    username 'username'
+                    password 'password'
+                }
+            }
+        }
+    }
+}
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
 
     implementation "com.airbnb.android:lottie:4.2.0"
+}
+
+signing {
+    sign configurations.archives
 }
