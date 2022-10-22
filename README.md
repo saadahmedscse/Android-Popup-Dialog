@@ -90,7 +90,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="441""/>
+<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="441"/>
 
 </td>
 </tr>
@@ -129,7 +129,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_standard.png" width="441""/>
+<img src ="popupDialog/demos/dialog_standard.png" width="441"/>
 
 </td>
 </tr>
@@ -166,7 +166,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_ios.png" width="441""/>
+<img src ="popupDialog/demos/dialog_ios.png" width="441"/>
 
 </td>
 </tr>
@@ -279,7 +279,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -299,7 +299,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_failed.gif" width="441"/>
+<img src ="popupDialog/demos/dialog_failed.gif" width="335"/>
 
 </td>
 </tr>
