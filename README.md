@@ -143,7 +143,44 @@ PopupDialog.getInstance(this)
 
 ```java
 PopupDialog.getInstance(this)
-    .setStyle(Styles.IOS) //Required
+        .setStyle(Styles.IOS) //Required
+        .setHeading("Logout") //Required
+        .setHeading("Are you sure you want to logout?"+
+        " This action cannot be undone") //Required
+        .setCancelable(false) //Non-Required
+        .showDialog(new OnDialogButtonClickListener() { //Required
+@Override
+public void onPositiveClicked(Dialog dialog) { //Non-Required
+        super.onPositiveClicked(dialog);
+        }
+
+@Override
+public void onNegativeClicked(Dialog dialog) { //Non-Required
+        super.onNegativeClicked(dialog);
+        }
+        }); //Show Dialog
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_ios.png" width="335" height="250px"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> ANDROID_DEFAULT </th>
+<th> Result </th>
+</tr>
+<tr>
+<td width="650px">
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.ANDROID_DEFAULT) //Required
     .setHeading("Logout") //Required
     .setHeading("Are you sure you want to logout?"+
         " This action cannot be undone") //Required
@@ -164,7 +201,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_ios.png" width="335"/>
+<img src ="popupDialog/demos/dialog_android_default.png" width="335" height="250px"/>
 
 </td>
 </tr>
