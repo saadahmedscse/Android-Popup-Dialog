@@ -112,15 +112,15 @@ PopupDialog.getInstance(this)
         .setPopupDialogIconTint(R.color.color_red) //Non-Required
         .setCancelable(false) //Non-Required
         .showDialog(new OnDialogButtonClickListener() { //Required
-@Override
-public void onPositiveClicked(Dialog dialog) { //Non-Required
-        super.onPositiveClicked(dialog);
-        }
+            @Override
+            public void onPositiveClicked(Dialog dialog) { //Non-Required
+                super.onPositiveClicked(dialog);
+            }
 
-@Override
-public void onNegativeClicked(Dialog dialog) { //Non-Required
-        super.onNegativeClicked(dialog);
-        }
+            @Override
+            public void onNegativeClicked(Dialog dialog) { //Non-Required
+                super.onNegativeClicked(dialog);
+            }
         }); //Show Dialog
 ```
 
