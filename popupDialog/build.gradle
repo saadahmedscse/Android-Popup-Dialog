@@ -41,19 +41,30 @@ task sourceJar(type: Jar) {
     classifier "sources"
 }
 
+def artifactVersion = "0.0.7"
+
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.saadahmedev.popup-dialog'
             artifactId 'popup-dialog'
-            version '0.0.3'
-            //artifact(sourceJar)
-            //artifact("$buildDir/outputs/aar/popupDialog-release.aar")
+            version artifactVersion
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/popupDialog-release.aar")
 
             pom {
                 name = 'Android Popup Dialog'
                 description = 'A custom android popup dialog library which provides you a lot of popup dialog with and without animation'
                 url = 'https://github.com/saadahmedscse/Android-Popup-Dialog'
+
+                withXml {
+                    def node = asNode().appendNode('dependencies').appendNode('dependency')
+                    node.appendNode('groupId', 'com.airbnb.android')
+                    node.appendNode('artifactId', 'lottie')
+                    node.appendNode('version', '5.2.0')
+                    node.appendNode('scope', 'compile')
+                }
+
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
@@ -77,7 +88,9 @@ publishing {
     }
     repositories {
         maven {
-            url "https://s01.oss.sonatype.org/content/repositories/releases/"
+            def releaseUrl = "https://s01.oss.sonatype.org/content/repositories/releases/"
+            def snapshotUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = artifactVersion.endsWith('SNAPSHOT') ? snapshotUrl : releaseUrl
 
             credentials {
                 username("username")
