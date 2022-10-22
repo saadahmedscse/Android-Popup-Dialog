@@ -106,7 +106,8 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.STANDARD) //Required
     .setHeading("Logout") //Required
-    .setHeading("Are you sure you want to logout? This action cannot be undone") //Required
+    .setHeading("Are you sure you want to logout?"+
+        " This action cannot be undone") //Required
     .setPopupDialogIcon(R.drawable.ic_logout) //Required
     .setCancelable(false) //Non-Required
     .showDialog(new OnDialogButtonClickListener() { //Required
