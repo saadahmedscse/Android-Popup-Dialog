@@ -143,22 +143,22 @@ PopupDialog.getInstance(this)
 
 ```java
 PopupDialog.getInstance(this)
-        .setStyle(Styles.IOS) //Required
-        .setHeading("Logout") //Required
-        .setHeading("Are you sure you want to logout?"+
-        " This action cannot be undone") //Required
-        .setCancelable(false) //Non-Required
-        .showDialog(new OnDialogButtonClickListener() { //Required
-@Override
-public void onPositiveClicked(Dialog dialog) { //Non-Required
-        super.onPositiveClicked(dialog);
+    .setStyle(Styles.IOS) //Required
+    .setHeading("Logout") //Required
+    .setHeading("Are you sure you want to logout?"+
+    " This action cannot be undone") //Required
+    .setCancelable(false) //Non-Required
+    .showDialog(new OnDialogButtonClickListener() { //Required
+        @Override
+        public void onPositiveClicked(Dialog dialog) { //Non-Required
+            super.onPositiveClicked(dialog);
         }
 
-@Override
-public void onNegativeClicked(Dialog dialog) { //Non-Required
-        super.onNegativeClicked(dialog);
+        @Override
+        public void onNegativeClicked(Dialog dialog) { //Non-Required
+            super.onNegativeClicked(dialog);
         }
-        }); //Show Dialog
+    }); //Show Dialog
 ```
 
 </td>
