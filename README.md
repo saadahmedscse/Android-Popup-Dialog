@@ -49,7 +49,7 @@ dependencies {
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -62,7 +62,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_progress.gif" width="441"/>
+<img src ="popupDialog/demos/dialog_progress.gif"/>
 
 </td>
 </tr>
@@ -74,7 +74,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -90,7 +90,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="441"/>
+<img src ="popupDialog/demos/dialog_lottie_animation.gif"/>
 
 </td>
 </tr>
@@ -102,7 +102,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -129,7 +129,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_standard.png" width="441"/>
+<img src ="popupDialog/demos/dialog_standard.png"/>
 
 </td>
 </tr>
@@ -141,7 +141,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -166,7 +166,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_ios.png" width="441"/>
+<img src ="popupDialog/demos/dialog_ios.png"/>
 
 </td>
 </tr>
@@ -178,7 +178,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -203,7 +203,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_android_default.png" width="441"/>
+<img src ="popupDialog/demos/dialog_android_default.png"/>
 
 </td>
 </tr>
@@ -215,7 +215,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -235,7 +235,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_success.gif" width="441"/>
+<img src ="popupDialog/demos/dialog_success.gif"/>
 
 </td>
 </tr>
@@ -247,7 +247,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="441">
+<td>
 
 ```java
 PopupDialog.getInstance(this)
@@ -267,7 +267,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_alert.gif" width="441"/>
+<img src ="popupDialog/demos/dialog_alert.gif"/>
 
 </td>
 </tr>
