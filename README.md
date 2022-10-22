@@ -78,11 +78,48 @@ PopupDialog.getInstance(this)
 
 ```java
 PopupDialog.getInstance(this)
-    .setStyle(Styles.LOTTIE_ANIMATION) //Required
-    .setLottieAssetName("technologies.json") //Required if no RawRes
-    .setLottieRawRes(R.raw.technologies) //Required if no Asset
+        .setStyle(Styles.LOTTIE_ANIMATION) //Required
+        .setLottieAssetName("technologies.json") //Required if no RawRes
+        .setLottieRawRes(R.raw.technologies) //Required if no Asset
+        .setCancelable(false) //Non-Required
+        .showDialog(); //Show Dialog
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="250px" width="335"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> STANDARD </th>
+<th> Result </th>
+</tr>
+<tr>
+<td width="650px">
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.STANDARD) //Required
+    .setHeading("Logout") //Required
+    .setHeading("Are you sure you want to logout? This action cannot be undone") //Required
+    .setPopupDialogIcon(R.drawable.ic_logout) //Required
     .setCancelable(false) //Non-Required
-    .showDialog(); //Show Dialog
+    .showDialog(new OnDialogButtonClickListener() { //Required
+        @Override
+        public void onPositiveClicked(Dialog dialog) { //Required
+            super.onPositiveClicked(dialog);
+        }
+
+        @Override
+        public void onNegativeClicked(Dialog dialog) { //Required
+            super.onNegativeClicked(dialog);
+        }
+    }); //Show Dialog
 ```
 
 </td>
