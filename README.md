@@ -113,14 +113,14 @@ PopupDialog.getInstance(this)
     .setPopupDialogIcon(R.drawable.ic_logout)
     .setPopupDialogIconTint(R.color.color_red)
     .setCancelable(false)
-    .showDialog(new OnDialogButtonClickListener() { //Required
+    .showDialog(new OnDialogButtonClickListener() {
         @Override
-        public void onPositiveClicked(Dialog dialog) { //Non-Required
+        public void onPositiveClicked(Dialog dialog) {
             super.onPositiveClicked(dialog);
         }
 
         @Override
-        public void onNegativeClicked(Dialog dialog) { //Non-Required
+        public void onNegativeClicked(Dialog dialog) {
             super.onNegativeClicked(dialog);
         }
     });
