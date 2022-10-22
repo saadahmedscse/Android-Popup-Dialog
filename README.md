@@ -203,7 +203,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_android_default.png" width="335"/>
+<img src ="popupDialog/demos/dialog_android_default.png" width="550"/>
 
 </td>
 </tr>
