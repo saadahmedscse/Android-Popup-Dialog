@@ -113,12 +113,12 @@ PopupDialog.getInstance(this)
     .setCancelable(false) //Non-Required
     .showDialog(new OnDialogButtonClickListener() { //Required
         @Override
-        public void onPositiveClicked(Dialog dialog) { //Required
+        public void onPositiveClicked(Dialog dialog) { //Non-Required
             super.onPositiveClicked(dialog);
         }
 
         @Override
-        public void onNegativeClicked(Dialog dialog) { //Required
+        public void onNegativeClicked(Dialog dialog) { //Non-Required
             super.onNegativeClicked(dialog);
         }
     }); //Show Dialog
