@@ -53,15 +53,41 @@ dependencies {
 
 ```java
 PopupDialog.getInstance(this)
-    .setStyle(Styles.PROGRESS) //Required
-    .setCancelable(false) //Non-Required
-    .showDialog(); //Show dialog
+        .setStyle(Styles.PROGRESS) //Required
+        .setCancelable(false) //Non-Required
+        .showDialog(); //Show dialog
 ```
 
 </td>
 <td>
 
 <img src ="popupDialog/demos/dialog_progress.gif" height="200px"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> LOTTIE_ANIMATION </th>
+<th> Result </th>
+</tr>
+<tr>
+<td>
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.LOTTIE_ANIMATION) //Required
+    .setLottieAssetName("technologies.json") //Required if no RawRes
+    .setLottieRawRes(R.raw.technologies) //Required if no Asset
+    .setCancelable(false) //Non-Required
+    .showDialog(); //Show Dialog
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="200px"/>
 
 </td>
 </tr>
