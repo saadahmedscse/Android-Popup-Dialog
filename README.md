@@ -303,9 +303,9 @@ PopupDialog.getInstance(this)
 </tr>
 </table>
 
-<table width="1200px">
+<table>
 <tr>
-<th> REQUIRED & NON-REQUIRED PROPERTIES </th>
+<th width="1200px"> REQUIRED & NON-REQUIRED PROPERTIES </th>
 </tr>
 <tr>
 <td>
