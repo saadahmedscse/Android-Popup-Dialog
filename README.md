@@ -209,7 +209,7 @@ PopupDialog.getInstance(this)
 
 <table>
 <tr>
-<th> ANDROID_DEFAULT </th>
+<th> SUCCESS </th>
 <th> Result </th>
 </tr>
 <tr>
@@ -241,7 +241,7 @@ PopupDialog.getInstance(this)
 
 <table>
 <tr>
-<th> ANDROID_DEFAULT </th>
+<th> ALERT </th>
 <th> Result </th>
 </tr>
 <tr>
@@ -273,7 +273,7 @@ PopupDialog.getInstance(this)
 
 <table>
 <tr>
-<th> ANDROID_DEFAULT </th>
+<th> FAILED </th>
 <th> Result </th>
 </tr>
 <tr>
