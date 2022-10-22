@@ -79,8 +79,10 @@ PopupDialog.getInstance(this)
 ```java
 PopupDialog.getInstance(this)
     .setStyle(Styles.LOTTIE_ANIMATION)
-    .setLottieAssetName("technologies.json") //Required if no RawRes
-    .setLottieRawRes(R.raw.technologies) //Required if no Asset
+    //Required if no RawRes
+    .setLottieAssetName("technologies.json")
+    //Required if no Asset
+    .setLottieRawRes(R.raw.technologies)
     .setCancelable(false)
     .showDialog();
 ```
