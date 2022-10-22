@@ -49,7 +49,7 @@ dependencies {
 <th> Result </th>
 </tr>
 <tr>
-<td width="700px">
+<td width="650px">
 
 ```java
 PopupDialog.getInstance(this)
@@ -73,7 +73,7 @@ PopupDialog.getInstance(this)
 <th> Result </th>
 </tr>
 <tr>
-<td width="700px">
+<td width="650px">
 
 ```java
 PopupDialog.getInstance(this)
