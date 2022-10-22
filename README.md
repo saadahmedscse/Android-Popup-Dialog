@@ -54,6 +54,7 @@ dependencies {
 ```java
 PopupDialog.getInstance(this)
         .setStyle(Styles.PROGRESS) //Required
+        .setProgressDialogTint(R.color.color_red) //Non-Required
         .setCancelable(false) //Non-Required
         .showDialog(); //Show dialog
 ```
