@@ -235,7 +235,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_success.gif" width="335"/>
+<img src ="popupDialog/demos/dialog_success.gif"/>
 
 </td>
 </tr>
