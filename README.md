@@ -53,10 +53,10 @@ dependencies {
 
 ```java
 PopupDialog.getInstance(this)
-        .setStyle(Styles.PROGRESS) //Required
-        .setProgressDialogTint(R.color.color_red) //Non-Required
-        .setCancelable(false) //Non-Required
-        .showDialog(); //Show dialog
+    .setStyle(Styles.PROGRESS) //Required
+    .setProgressDialogTint(R.color.color_red) //Non-Required
+    .setCancelable(false) //Non-Required
+    .showDialog(); //Show dialog
 ```
 
 </td>
@@ -78,11 +78,11 @@ PopupDialog.getInstance(this)
 
 ```java
 PopupDialog.getInstance(this)
-        .setStyle(Styles.LOTTIE_ANIMATION) //Required
-        .setLottieAssetName("technologies.json") //Required if no RawRes
-        .setLottieRawRes(R.raw.technologies) //Required if no Asset
-        .setCancelable(false) //Non-Required
-        .showDialog(); //Show Dialog
+    .setStyle(Styles.LOTTIE_ANIMATION) //Required
+    .setLottieAssetName("technologies.json") //Required if no RawRes
+    .setLottieRawRes(R.raw.technologies) //Required if no Asset
+    .setCancelable(false) //Non-Required
+    .showDialog(); //Show Dialog
 ```
 
 </td>
@@ -104,24 +104,24 @@ PopupDialog.getInstance(this)
 
 ```java
 PopupDialog.getInstance(this)
-        .setStyle(Styles.STANDARD) //Required
-        .setHeading("Logout") //Required
-        .setHeading("Are you sure you want to logout?"+
+    .setStyle(Styles.STANDARD) //Required
+    .setHeading("Logout") //Required
+    .setHeading("Are you sure you want to logout?"+
         " This action cannot be undone") //Required
-        .setPopupDialogIcon(R.drawable.ic_logout) //Required
-        .setPopupDialogIconTint(R.color.color_red) //Non-Required
-        .setCancelable(false) //Non-Required
-        .showDialog(new OnDialogButtonClickListener() { //Required
-            @Override
-            public void onPositiveClicked(Dialog dialog) { //Non-Required
-                super.onPositiveClicked(dialog);
-            }
+    .setPopupDialogIcon(R.drawable.ic_logout) //Required
+    .setPopupDialogIconTint(R.color.color_red) //Non-Required
+    .setCancelable(false) //Non-Required
+    .showDialog(new OnDialogButtonClickListener() { //Required
+        @Override
+        public void onPositiveClicked(Dialog dialog) { //Non-Required
+            super.onPositiveClicked(dialog);
+        }
 
-            @Override
-            public void onNegativeClicked(Dialog dialog) { //Non-Required
-                super.onNegativeClicked(dialog);
-            }
-        }); //Show Dialog
+        @Override
+        public void onNegativeClicked(Dialog dialog) { //Non-Required
+            super.onNegativeClicked(dialog);
+        }
+    }); //Show Dialog
 ```
 
 </td>
@@ -146,7 +146,7 @@ PopupDialog.getInstance(this)
     .setStyle(Styles.IOS) //Required
     .setHeading("Logout") //Required
     .setHeading("Are you sure you want to logout?"+
-    " This action cannot be undone") //Required
+        " This action cannot be undone") //Required
     .setCancelable(false) //Non-Required
     .showDialog(new OnDialogButtonClickListener() { //Required
         @Override
@@ -202,6 +202,102 @@ PopupDialog.getInstance(this)
 <td>
 
 <img src ="popupDialog/demos/dialog_android_default.png" width="335" height="250px"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> ANDROID_DEFAULT </th>
+<th> Result </th>
+</tr>
+<tr>
+<td width="650px">
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.SUCCESS)
+    .setHeading("Well Done") //Required
+    .setHeading("You have successfully"+
+        " completed the task") //Required
+    .setCancelable(false) //Non-Required
+    .showDialog(new OnDialogButtonClickListener() {
+        @Override
+        public void onDismissClicked(Dialog dialog) {
+            super.onDismissClicked(dialog);
+        }
+    });
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_success.gif" width="335"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> ANDROID_DEFAULT </th>
+<th> Result </th>
+</tr>
+<tr>
+<td width="650px">
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.ALERT) //Required
+    .setHeading("Pending") //Required
+    .setHeading("You verification is under"+
+        " observation. Try again later.") //Required
+    .setCancelable(false) //Non-Required
+    .showDialog(new OnDialogButtonClickListener() {
+        @Override
+        public void onDismissClicked(Dialog dialog) {
+            super.onDismissClicked(dialog);
+        }
+    });
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_alert.gif" width="335"/>
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th> ANDROID_DEFAULT </th>
+<th> Result </th>
+</tr>
+<tr>
+<td width="650px">
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.FAILED) //Required
+    .setHeading("Uh-Oh") //Required
+    .setHeading("Unexpected error occurred."+
+        " Try again later.") //Required
+    .setCancelable(false) //Non-Required
+    .showDialog(new OnDialogButtonClickListener() {
+        @Override
+        public void onDismissClicked(Dialog dialog) {
+            super.onDismissClicked(dialog);
+        }
+    });
+```
+
+</td>
+<td>
+
+<img src ="popupDialog/demos/dialog_failed.gif" width="335"/>
 
 </td>
 </tr>
