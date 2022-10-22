@@ -25,7 +25,24 @@ import android.app.Dialog;
  */
 
 public abstract class OnDialogButtonClickListener {
-    public void onPositiveClicked(Dialog dialog) {}
-    public void onNegativeClicked(Dialog dialog) {}
-    public void onDismissClicked(Dialog dialog) {}
+    public void onPositiveClicked(Dialog dialog) {
+        dismiss(dialog);
+    }
+    public void onNegativeClicked(Dialog dialog) {
+        dismiss(dialog);
+    }
+    public void onDismissClicked(Dialog dialog) {
+        dialog.dismiss();
+    }
+
+    /**
+     * Dismiss the dialog by default on method call using super keyword
+     * @param dialog is required to check if nonnull and isShowing
+     */
+
+    private void dismiss(Dialog dialog) {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
 }
