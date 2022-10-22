@@ -61,7 +61,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_progress.gif" width="550px"/>
+<img src ="popupDialog/demos/dialog_progress.gif" height="250px"/>
 
 </td>
 </tr>
@@ -87,7 +87,7 @@ PopupDialog.getInstance(this)
 </td>
 <td>
 
-<img src ="popupDialog/demos/dialog_lottie_animation.gif" width="550px"/>
+<img src ="popupDialog/demos/dialog_lottie_animation.gif" height="250px"/>
 
 </td>
 </tr>
