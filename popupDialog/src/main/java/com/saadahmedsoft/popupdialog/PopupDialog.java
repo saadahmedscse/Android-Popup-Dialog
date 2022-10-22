@@ -20,6 +20,8 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 
+import androidx.annotation.Nullable;
+
 public class PopupDialog {
 
     /**
@@ -29,6 +31,7 @@ public class PopupDialog {
      * A custom android popup dialog library which provides you a lot of popup dialog and progress dialog with and without animation
      */
 
+    @Nullable
     private final Dialog dialog;
     private final Context context;
     @SuppressLint("StaticFieldLeak")
@@ -73,7 +76,7 @@ public class PopupDialog {
      */
 
     public void dismissDialog() {
-        if (dialog.isShowing()) {
+        if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
     }
