@@ -303,6 +303,32 @@ PopupDialog.getInstance(this)
 </tr>
 </table>
 
+<table>
+<tr>
+<th> REQUIRED & NON-REQUIRED PROPERTIES </th>
+</tr>
+<tr>
+<td>
+
+```java
+PopupDialog.getInstance(this)
+    .setStyle(Styles.FAILED)
+    .setHeading("Uh-Oh")
+    .setHeading("Unexpected error occurred."+
+        " Try again later.")
+    .setCancelable(false)
+    .showDialog(new OnDialogButtonClickListener() {
+        @Override
+        public void onDismissClicked(Dialog dialog) {
+            super.onDismissClicked(dialog);
+        }
+    });
+```
+
+</td>
+</tr>
+</table>
+
 ## License
 ```
 Copyright 2022 Saad Ahmed
