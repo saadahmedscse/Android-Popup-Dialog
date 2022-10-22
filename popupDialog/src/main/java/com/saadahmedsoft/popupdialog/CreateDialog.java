@@ -229,7 +229,7 @@ public class CreateDialog {
      * @return instance of create dialog class
      */
 
-    public CreateDialog setDialogIcon(@DrawableRes int icon) {
+    public CreateDialog setPopupDialogIcon(@DrawableRes int icon) {
         this.icon = icon;
         return instance;
     }
@@ -240,7 +240,7 @@ public class CreateDialog {
      * @return instance of create dialog class
      */
 
-    public CreateDialog setDialogIconTint(@ColorRes int iconTint) {
+    public CreateDialog setPopupDialogIconTint(@ColorRes int iconTint) {
         this.iconTint = iconTint;
         return instance;
     }
@@ -296,7 +296,7 @@ public class CreateDialog {
      * @return instance of create dialog class
      */
 
-    public CreateDialog setTint(@ColorInt int tint) {
+    public CreateDialog setProgressDialogTint(@ColorInt int tint) {
         this.tint = tint;
         return instance;
     }
@@ -362,7 +362,7 @@ public class CreateDialog {
      * @return instance of create dialog class
      */
 
-    public CreateDialog setDialogTimeout(long seconds) {
+    public CreateDialog setLottieDialogTimeout(long seconds) {
         this.progressDialogTimeout = seconds;
         return instance;
     }
@@ -461,7 +461,7 @@ public class CreateDialog {
             }
         }
         if (progressDialogTimeout != null) {
-            new Handler().postDelayed((Runnable) dialog::dismiss, progressDialogTimeout);
+            new Handler().postDelayed(dialog::dismiss, progressDialogTimeout);
         }
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         show();
