@@ -45,8 +45,8 @@ dependencies {
 ### Implementation :
 <table>
 <tr>
-<th> Good </th>
-<th> Bad </th>
+<th> PROGRESS </th>
+<th> Result </th>
 </tr>
 <tr>
 <td>
@@ -54,18 +54,14 @@ dependencies {
 ```java
 PopupDialog.getInstance(this)
     .setStyle(Styles.PROGRESS) //Required
+    .setCancelable(false) //Non-Required
     .showDialog(); //Show dialog
 ```
 
 </td>
 <td>
 
-```c++
-int foo() { 
-    int x = 4;
-    return x;
-}
-```
+<img src ="popupDialog/demos/dialog_progress.gif" height="200px"/>
 
 </td>
 </tr>
