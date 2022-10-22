@@ -311,18 +311,86 @@ PopupDialog.getInstance(this)
 <td>
 
 ```java
-PopupDialog.getInstance(this)
-    .setStyle(Styles.FAILED)
-    .setHeading("Uh-Oh")
-    .setHeading("Unexpected error occurred."+
-        " Try again later.")
-    .setCancelable(false)
-    .showDialog(new OnDialogButtonClickListener() {
+//Let Dialog types with A, B and C
+//---Dialog Type A--->[PROGRESS, LOTTIE_ANIMATION]
+//---Dialog Type B--->[IOS, ANDROID_DEFAULT, STANDARD]
+//---Dialog Type C--->[SUCCESS, FAILED, ALERT]
+
+//Created object for later usage to dismiss the dialog
+PopupDialog dialog = PopupDialog.getInstance(this); //Context is required for creating instance
+
+dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
+
+    //-----------------------------HEADING-DESCRIPTION-----------------------------//
+    .setHeading("Well Done") //Required for only [B, C]
+    .setDescription("You have successfully completed the task") //Required only for [B, C]
+    .setHeadingTextColor(R.color.black) //Non-Required. Work only for [B, C]
+    .setDescriptionTextColor(R.color.grey) //Non-Required. Work only for [B, C]
+
+    //-----------------------------ICON & TINT-----------------------------//
+    .setPopupDialogIcon(R.drawable.ic_logout) //Non-Required. Work only for [B]
+    .setPopupDialogIconTint(R.color.red) //Non-Required. Work only for [B]
+    .setProgressDialogTint(R.color.green) //Non-Required. Work only for [PROGRESS]
+
+    //-----------------------------TIMEOUT-----------------------------//
+    .setTimeout(1) //Non-Required. Work only for [A, B, C] excluding [LOTTIE_ANIMATION]
+    .setLottieDialogTimeout(5) //Non-Required. Work only for [LOTTIE_ANIMATION]
+
+    //-----------------------------CANCELABLE-----------------------------//
+    .setCancelable(false) //Non-Required. Work only for [A, B, C]
+
+    //-----------------------------DIALOG ACTION BUTTON TEXT-----------------------------//
+    .setPositiveButtonText("Confirm") //Non-Required. Work only for [B]
+    .setNegativeButtonText("Deny") //Non-Required. Work only for [B]
+    .setDismissButtonText("Close") //Non-Required. Work only for [C]
+
+    //-----------------------------DIALOG ACTION BUTTON TEXT COLOR-----------------------------//
+    .setPositiveButtonTextColor(R.color.blue) //Non-Required. Work only for [B]
+    .setNegativeButtonTextColor(R.color.red) //Non-Required. Work only for [B]
+    .setDismissButtonTextColor(R.color.green)//Non-Required. Work only for [C]
+
+    //-----------------------------DIALOG ACTION BUTTON BACKGROUND-----------------------------//
+    .setPositiveButtonBackground(R.drawable.bg_yellow) //Non-Required. Work only for [B]
+    .setNegativeButtonBackground(R.drawable.bg_light_grey) //Non-Required. Work only for [B]
+    .setDismissButtonBackground(R.drawable.bg_black) //Non-Required. Work only for [C]
+
+    //-----------------------------LOTTIE ANIMATION LINKING-----------------------------//
+    .setLottieRawRes(R.raw.technologies) //Required if not Asset. Work only for [LOTTIE_ANIMATION]
+    .setLottieAssetName("technologies.json") //Required if no RawRes. Work only for [LOTTIE_ANIMATION]
+    .setLottieDialogTimeout(5) //Non-Required. Work only for [LOTTIE_ANIMATION] Unit: Second
+    .setLottieAnimationSpeed(5F) //Non-Required. Work only for [LOTTIE_ANIMATION] Unit: Float
+    .setLottieRepeatCount(500) //Non-Required. Work only for [LOTTIE_ANIMATION] Unit: Int
+
+    .showDialog() //Required. Work only for [A]
+
+    .showDialog(new OnDialogButtonClickListener() { //Required. Work only for [B, C]
         @Override
-        public void onDismissClicked(Dialog dialog) {
-            super.onDismissClicked(dialog);
+        public void onPositiveClicked(Dialog dialog) { //Non-Required. Work only for [B]
+            /*
+             Calling super keyword will dismiss the dialog
+             Don't call super keyword if not needed
+            */
+            super.onPositiveClicked(dialog);
         }
-    });
+
+        @Override
+        public void onNegativeClicked(Dialog dialog) { //Non-Required. Work only for [B]
+            /*
+             Calling super keyword will dismiss the dialog
+             Don't call super keyword if not needed
+            */
+            super.onNegativeClicked(dialog);
+        }
+
+        @Override
+            public void onDismissClicked(Dialog dialog) { //Non-Required. Work only for [C]
+                /*
+                 Calling super keyword will dismiss the dialog
+                 Don't call super keyword if not needed
+                */
+                super.onDismissClicked(dialog);
+            }
+        });
 ```
 
 </td>
