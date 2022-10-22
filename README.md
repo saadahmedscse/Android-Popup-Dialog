@@ -303,6 +303,8 @@ PopupDialog.getInstance(this)
 </tr>
 </table>
 
+All Properties [REQUIRED & NON-REQUIRED]
+----------------------------------------
 <table>
 <tr>
 <th width="1200px"> REQUIRED & NON-REQUIRED PROPERTIES </th>
@@ -397,7 +399,13 @@ dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
 </tr>
 </table>
 
-## License
+Changelog
+---------
+* **1.0.0**
+    * Initial release
+
+License
+-------
 ```
 Copyright 2022 Saad Ahmed
 
