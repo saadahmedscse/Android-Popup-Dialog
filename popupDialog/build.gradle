@@ -41,26 +41,47 @@ task sourceJar(type: Jar) {
     classifier "sources"
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.release
-                groupId 'com.saadahmedev.popup-dialog'
-                artifactId 'popup-dialog'
-                version '0.0.1' // or manually '1.0'
-                artifact(sourceJar)
-                artifact("$buildDir/outputs/aar/bar-release.aar")
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.saadahmedev.popup-dialog'
+            artifactId 'popup-dialog'
+            version '0.0.3'
+            //artifact(sourceJar)
+            //artifact("$buildDir/outputs/aar/popupDialog-release.aar")
+
+            pom {
+                name = 'Android Popup Dialog'
+                description = 'A custom android popup dialog library which provides you a lot of popup dialog with and without animation'
+                url = 'https://github.com/saadahmedscse/Android-Popup-Dialog'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'saadahmedscse'
+                        name = 'Saad Ahmed'
+                        email = 'saadahmedscse@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/saadahmedscse/Android-Popup-Dialog.git'
+                    developerConnection = 'scm:git:ssh://github.com:saadahmedscse/Android-Popup-Dialog.git'
+                    url = 'https://github.com/saadahmedscse/Android-Popup-Dialog'
+                }
             }
         }
-        repositories {
-            maven {
-                url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+    }
+    repositories {
+        maven {
+            url "https://s01.oss.sonatype.org/content/repositories/releases/"
 
-                credentials {
-                    username 'username'
-                    password 'password'
-                }
+            credentials {
+                username("username")
+                password("password")
             }
         }
     }
@@ -70,7 +91,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
 
-    implementation "com.airbnb.android:lottie:4.2.0"
+    implementation "com.airbnb.android:lottie:5.2.0"
 }
 
 signing {
