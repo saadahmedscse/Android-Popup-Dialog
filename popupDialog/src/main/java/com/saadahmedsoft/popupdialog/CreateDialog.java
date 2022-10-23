@@ -508,6 +508,12 @@ public class CreateDialog {
         if (dialogBackground != null) {
             root.setBackgroundResource(dialogBackground);
         }
+        if (positiveButtonText != null) {
+            btnPositive.setText(positiveButtonText);
+        }
+        if (negativeButtonText != null) {
+            btnNegative.setText(negativeButtonText);
+        }
         if (positiveButtonTextColor != null) {
             btnPositive.setTextColor(ContextCompat.getColor(context, positiveButtonTextColor));
         }
