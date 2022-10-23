@@ -27,7 +27,7 @@ Add the dependency to your module build.gradle:
 ```groovy
 dependencies {
     ...
-    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.0'
+    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.1'
 }
 ```
 
@@ -403,6 +403,8 @@ dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
 
 Changelog
 ---------
+* **1.0.1**
+  * Set positive and negative button text programmatically
 * **1.0.0**
     * Initial release
 
