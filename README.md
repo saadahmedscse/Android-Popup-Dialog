@@ -27,7 +27,7 @@ Add the dependency to your module build.gradle:
 ```groovy
 dependencies {
     ...
-    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.1'
+    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.2'
 }
 ```
 
