@@ -584,9 +584,6 @@ public class CreateDialog {
         if (dialogBackground != null) {
             root.setBackgroundResource(dialogBackground);
         }
-        if (dismissButtonBackground != null) {
-            btnDismiss.setBackgroundResource(dismissButtonBackground);
-        }
         if (dismissButtonText != null) {
             btnDismiss.setText(dismissButtonText);
         }
@@ -617,6 +614,10 @@ public class CreateDialog {
                 btnDismiss.setBackgroundResource(R.drawable.ripple_bg_yellow_10);
                 break;
             }
+        }
+
+        if (dismissButtonBackground != null) {
+            btnDismiss.setBackgroundResource(dismissButtonBackground);
         }
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
