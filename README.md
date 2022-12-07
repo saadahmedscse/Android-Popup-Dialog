@@ -403,6 +403,8 @@ dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
 
 Changelog
 ---------
+* **1.0.2**
+  * Fixed issue "setDismissButtonBackground does not apply"
 * **1.0.1**
   * Set positive and negative button text programmatically
 * **1.0.0**
