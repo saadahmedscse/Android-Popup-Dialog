@@ -108,7 +108,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.STANDARD)
     .setHeading("Logout")
-    .setHeading("Are you sure you want to logout?"+
+    .setDescription("Are you sure you want to logout?"+
         " This action cannot be undone")
     .setPopupDialogIcon(R.drawable.ic_logout)
     .setPopupDialogIconTint(R.color.color_red)
@@ -147,7 +147,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.IOS)
     .setHeading("Logout")
-    .setHeading("Are you sure you want to logout?"+
+    .setDescription("Are you sure you want to logout?"+
         " This action cannot be undone")
     .setCancelable(false)
     .showDialog(new OnDialogButtonClickListener() {
@@ -184,7 +184,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.ANDROID_DEFAULT)
     .setHeading("Logout")
-    .setHeading("Are you sure you want to logout?"+
+    .setDescription("Are you sure you want to logout?"+
         " This action cannot be undone")
     .setCancelable(false)
     .showDialog(new OnDialogButtonClickListener() {
@@ -221,7 +221,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.SUCCESS)
     .setHeading("Well Done")
-    .setHeading("You have successfully"+
+    .setDescription("You have successfully"+
         " completed the task")
     .setCancelable(false)
     .showDialog(new OnDialogButtonClickListener() {
@@ -253,7 +253,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.ALERT)
     .setHeading("Pending")
-    .setHeading("You verification is under"+
+    .setDescription("You verification is under"+
         " observation. Try again later.")
     .setCancelable(false)
     .showDialog(new OnDialogButtonClickListener() {
@@ -285,7 +285,7 @@ PopupDialog.getInstance(this)
 PopupDialog.getInstance(this)
     .setStyle(Styles.FAILED)
     .setHeading("Uh-Oh")
-    .setHeading("Unexpected error occurred."+
+    .setDescription("Unexpected error occurred."+
         " Try again later.")
     .setCancelable(false)
     .showDialog(new OnDialogButtonClickListener() {
