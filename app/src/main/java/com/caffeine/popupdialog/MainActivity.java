@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.os.Bundle;
 
+import com.saadahmedsoft.popupdialog.PopupDialog;
+import com.saadahmedsoft.popupdialog.Styles;
+import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
+
 //import com.saadahmedsoft.popupdialog.PopupDialog;
 //import com.saadahmedsoft.popupdialog.Styles;
 //import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
@@ -17,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        PopupDialog.getInstance(this)
-//                .setStyle(Styles.STANDARD)
+//                .setStyle(Styles.SUCCESS)
 //                .setHeading("This is heading")
+//                .setLottieRepeatCount(0)
 //                .setDescription("This is the description")
 //                .setDismissButtonText("Close")
 //                .showDialog(new OnDialogButtonClickListener() {
