@@ -27,7 +27,7 @@ Add the dependency to your module build.gradle:
 ```groovy
 dependencies {
     ...
-    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.2'
+    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.3'
 }
 ```
 
@@ -403,6 +403,10 @@ dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
 
 Changelog
 ---------
+* **1.0.3**
+  * Fixed issue "# Dialog Type 3 - Icon Animation count fix"
+  * Can be used in SDK 34 also
+  * Upgraded dependency versions
 * **1.0.2**
   * Fixed issue "setDismissButtonBackground does not apply"
 * **1.0.1**
