@@ -4,11 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.os.Bundle;
-
-import com.saadahmedsoft.popupdialog.PopupDialog;
-import com.saadahmedsoft.popupdialog.Styles;
-import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
-
 //import com.saadahmedsoft.popupdialog.PopupDialog;
 //import com.saadahmedsoft.popupdialog.Styles;
 //import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
