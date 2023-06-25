@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'com.saadahmedsoft.popupdialog'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -41,7 +41,7 @@ task sourceJar(type: Jar) {
     classifier "sources"
 }
 
-def artifactVersion = "1.0.2"
+def artifactVersion = "1.0.3"
 
 publishing {
     publications {
@@ -101,8 +101,8 @@ publishing {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
 
     implementation "com.airbnb.android:lottie:5.2.0"
 }
