@@ -596,6 +596,12 @@ public class CreateDialog {
         if (descriptionTextColor != null) {
             description.setTextColor(ContextCompat.getColor(context, descriptionTextColor));
         }
+        /**
+         * Added dialogStyleThree Options
+         */
+        if(lottieRepeatCount != null) {
+            icon.setRepeatCount(lottieRepeatCount);
+        }
 
         switch (style) {
             case SUCCESS: {
