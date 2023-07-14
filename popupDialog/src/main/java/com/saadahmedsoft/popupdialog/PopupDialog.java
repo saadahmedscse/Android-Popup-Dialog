@@ -27,7 +27,7 @@ public class PopupDialog {
     /**
      * Popup Dialog class.
      * Created by Saad Ahmed on 17-May-2022.
-     * Github: https://github.com/saadahmedscse/Android-Popup-Dialog
+     * Github: <a href="https://github.com/saadahmedscse/Android-Popup-Dialog">...</a>
      * A custom android popup dialog library which provides you a lot of popup dialog and progress dialog with and without animation
      */
 

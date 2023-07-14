@@ -4,15 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:paddingTop="64dp"
+    android:paddingBottom="64dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.widget.Button
+        android:id="@+id/buttonProgress"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_progress"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/buttonIos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_ios"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDefault"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonProgress" />
+
+    <android.widget.Button
+        android:id="@+id/buttonDefault"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_android_default"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStandard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIos" />
+
+    <android.widget.Button
+        android:id="@+id/buttonStandard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_standard"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLottie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDefault" />
+
+    <android.widget.Button
+        android:id="@+id/buttonLottie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_lottie_animation"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSuccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStandard" />
+
+    <android.widget.Button
+        android:id="@+id/buttonSuccess"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="0.6"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_success"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFailed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLottie" />
+
+    <android.widget.Button
+        android:id="@+id/buttonFailed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="0.6"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_failed"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAlert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSuccess" />
+
+    <android.widget.Button
+        android:id="@+id/buttonAlert"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.6"
+        android:layout_marginTop="16dp"
+        android:background="#0000ff"
+        android:padding="16dp"
+        android:text="@string/styles_alert"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFailed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
