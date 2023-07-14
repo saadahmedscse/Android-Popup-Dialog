@@ -27,7 +27,7 @@ Add the dependency to your module build.gradle:
 ```groovy
 dependencies {
     ...
-    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.4'
+    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.5'
 }
 ```
 
@@ -403,7 +403,7 @@ dialog.setStyle(Styles.SUCCESS) //Required for Dialog Type [A, B, C]
 
 Changelog
 ---------
-* **1.0.4**
+* **1.0.5**
   * Fixed issue "Default Dialog keeping an instance of PopupDialog always"
 * **1.0.3**
   * Fixed issue "# Dialog Type 3 - Icon Animation count fix"
