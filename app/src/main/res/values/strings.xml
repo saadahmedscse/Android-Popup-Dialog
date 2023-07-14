@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">PopupDialog</string>
-    <string name="styles_progress">Styles.PROGRESS</string>
-    <string name="styles_alert">Styles.ALERT</string>
-    <string name="styles_failed">Styles.FAILED</string>
-    <string name="styles_success">Styles.SUCCESS</string>
-    <string name="styles_lottie_animation">Styles.LOTTIE_ANIMATION</string>
-    <string name="styles_standard">Styles.STANDARD</string>
-    <string name="styles_android_default">Styles.ANDROID_DEFAULT</string>
-    <string name="styles_ios">Styles.IOS</string>
+    <string name="styles_progress">PROGRESS</string>
+    <string name="styles_alert">ALERT</string>
+    <string name="styles_failed">FAILED</string>
+    <string name="styles_success">SUCCESS</string>
+    <string name="styles_lottie_animation">LOTTIE_ANIMATION</string>
+    <string name="styles_standard">STANDARD</string>
+    <string name="styles_android_default">ANDROID_DEFAULT</string>
+    <string name="styles_ios">IOS</string>
 </resources>

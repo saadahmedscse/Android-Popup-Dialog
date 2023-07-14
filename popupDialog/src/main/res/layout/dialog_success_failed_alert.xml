@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
@@ -24,7 +25,8 @@
         android:layout_marginTop="18dp"
         android:fontFamily="@font/bold"
         android:gravity="center"
-        android:textColor="@color/colorDarkGrey"
+        tools:text="Well Done"
+        android:textColor="@color/text_color"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lottie_icon" />
@@ -36,7 +38,8 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/regular"
         android:gravity="center"
-        android:textColor="@color/colorDarkGrey"
+        tools:text="You have successfully completed the task"
+        android:textColor="@color/text_color_light"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tv_heading" />
 
@@ -49,7 +52,7 @@
         android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="@string/dismiss"
-        android:textColor="@color/static_white"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
