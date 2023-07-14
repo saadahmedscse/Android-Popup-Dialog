@@ -41,7 +41,7 @@ task sourceJar(type: Jar) {
     classifier "sources"
 }
 
-def artifactVersion = "1.0.3"
+def artifactVersion = "1.0.4"
 
 publishing {
     publications {
