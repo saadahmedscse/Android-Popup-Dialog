@@ -476,8 +476,14 @@ public class CreateDialog {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context)
                 .setTitle(heading)
                 .setMessage(description)
-                .setPositiveButton(positiveButtonText == null ? "Submit" : positiveButtonText, (dialogInterface, i) -> listener.onPositiveClicked(dialog))
-                .setNegativeButton(negativeButtonText == null ? "Cancel" : negativeButtonText, ((dialogInterface, i) -> listener.onNegativeClicked(dialog)));
+                .setPositiveButton(positiveButtonText == null ? "Submit" : positiveButtonText, (dialogInterface, i) -> {
+                    instance = null;
+                    listener.onPositiveClicked(dialog);
+                })
+                .setNegativeButton(negativeButtonText == null ? "Cancel" : negativeButtonText, ((dialogInterface, i) -> {
+                    instance = null;
+                    listener.onNegativeClicked(dialog);
+                }));
         alertDialog.setCancelable(cancelable);
         alertDialog.show();
     }
