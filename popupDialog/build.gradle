@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.saadahmedsoft.popupdialog'
+    namespace 'com.saadahmedev.popupdialog'
     compileSdk 34
 
     defaultConfig {
@@ -18,10 +18,14 @@ android {
 
     publishing {
         singleVariant("release") {
-            // if you don't want sources/javadoc, remove these lines
             withSourcesJar()
             withJavadocJar()
         }
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
     }
 
     buildTypes {
@@ -31,17 +35,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier "sources"
-}
+//task sourceJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier "sources"
+//}
 
-def artifactVersion = "1.0.5"
+def artifactVersion = "2.0.0"
 
 publishing {
     publications {
@@ -49,7 +53,7 @@ publishing {
             groupId 'com.saadahmedev.popup-dialog'
             artifactId 'popup-dialog'
             version artifactVersion
-            artifact(sourceJar)
+//            artifact(sourceJar)
             artifact("$buildDir/outputs/aar/popupDialog-release.aar")
 
             pom {
@@ -102,7 +106,7 @@ publishing {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.11.0'
 
     implementation "com.airbnb.android:lottie:5.2.0"
 }

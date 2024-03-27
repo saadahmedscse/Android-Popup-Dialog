@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.saadahmedsoft.popupdialog;
+package com.saadahmedev.popupdialog;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -22,7 +22,7 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-public class PopupDialog {
+public class PopupDialog_ {
 
     /**
      * Popup Dialog class.
@@ -35,14 +35,14 @@ public class PopupDialog {
     private final Dialog dialog;
     private final Context context;
     @SuppressLint("StaticFieldLeak")
-    private static PopupDialog instance = null;
+    private static PopupDialog_ instance = null;
 
     /**
      * Private constructor of popup dialog
      * @param context is required to create instance of dialog
      */
 
-    private PopupDialog(Context context) {
+    private PopupDialog_(Context context) {
         this.context = context;
         dialog = new Dialog(context);
     }
@@ -53,9 +53,9 @@ public class PopupDialog {
      * @return instance of popup dialog class
      */
 
-    public static PopupDialog getInstance(Context context) {
+    public static PopupDialog_ getInstance(Context context) {
         if (instance == null) {
-            instance = new PopupDialog(context);
+            instance = new PopupDialog_(context);
         }
         return instance;
     }
@@ -66,7 +66,7 @@ public class PopupDialog {
      * @return instance of create dialog class
      */
 
-    public CreateDialog setStyle(Styles style) {
+    public CreateDialog setStyle(Style style) {
         instance = null;
         return CreateDialog.getInstance(context, style, dialog);
     }

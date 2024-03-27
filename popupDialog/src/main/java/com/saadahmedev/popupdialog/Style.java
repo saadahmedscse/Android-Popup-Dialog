@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.saadahmedsoft.popupdialog;
+package com.saadahmedev.popupdialog;
 
 /**
  * Dialog Style Enum.
@@ -22,6 +22,6 @@ package com.saadahmedsoft.popupdialog;
  * This enum will give user's a lot of styles to be implemented
  */
 
-public enum Styles {
+public enum Style {
     PROGRESS, IOS, ANDROID_DEFAULT, STANDARD, LOTTIE_ANIMATION, SUCCESS, FAILED, ALERT
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.saadahmedsoft.popupdialog;
+package com.saadahmedev.popupdialog;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -38,7 +38,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
+import com.saadahmedev.popupdialog.listener.OnDialogButtonClickListener;
 
 public class CreateDialog {
 
@@ -51,7 +51,7 @@ public class CreateDialog {
     @SuppressLint("StaticFieldLeak")
     private static CreateDialog instance = null;
     private final Context context;
-    private final Styles style;
+    private final Style style;
     private final Dialog dialog;
     private String heading, description, positiveButtonText, negativeButtonText, dismissButtonText, lottieFile;
     private boolean cancelable = true;
@@ -81,7 +81,7 @@ public class CreateDialog {
      * @param dialog is required to modify it
      */
 
-    private CreateDialog(Context context, Styles style, Dialog dialog) {
+    private CreateDialog(Context context, Style style, Dialog dialog) {
         this.context = context;
         this.style = style;
         this.dialog = dialog;
@@ -95,7 +95,7 @@ public class CreateDialog {
      * @return instance of create dialog class
      */
 
-    public static CreateDialog getInstance(Context context, Styles style, Dialog dialog) {
+    public static CreateDialog getInstance(Context context, Style style, Dialog dialog) {
         if (instance == null) {
             instance = new CreateDialog(context, style, dialog);
         }
@@ -406,17 +406,17 @@ public class CreateDialog {
                 break;
             }
             case SUCCESS: {
-                dialogStyleThree(Styles.SUCCESS, listener);
+                dialogStyleThree(Style.SUCCESS, listener);
                 show();
                 break;
             }
             case FAILED: {
-                dialogStyleThree(Styles.FAILED, listener);
+                dialogStyleThree(Style.FAILED, listener);
                 show();
                 break;
             }
             case ALERT: {
-                dialogStyleThree(Styles.ALERT, listener);
+                dialogStyleThree(Style.ALERT, listener);
                 show();
                 break;
             }
@@ -441,11 +441,11 @@ public class CreateDialog {
 
     private void showProgressDialog(@LayoutRes int layout) {
         setContentView(layout);
-        if (tint != null && style == Styles.PROGRESS) {
+        if (tint != null && style == Style.PROGRESS) {
             ProgressBar progressBar = dialog.findViewById(R.id.progress_bar);
             progressBar.getIndeterminateDrawable().setColorFilter(tint, PorterDuff.Mode.SRC_IN);
         }
-        if (style == Styles.LOTTIE_ANIMATION) {
+        if (style == Style.LOTTIE_ANIMATION) {
             LottieAnimationView lottieAnimation = dialog.findViewById(R.id.lottie_animation_view);
             if (lottieFile != null) {
                 lottieAnimation.setAnimation(lottieFile);
@@ -569,8 +569,8 @@ public class CreateDialog {
      * @param listener is required to get the callback on positive or negative or dismiss button clicked
      */
 
-    private void dialogStyleThree(Styles style, OnDialogButtonClickListener listener) {
-        setContentView(R.layout.dialog_success_failed_alert);
+    private void dialogStyleThree(Style style, OnDialogButtonClickListener listener) {
+        setContentView(R.layout.dialog_status);
 
         LottieAnimationView icon = dialog.findViewById(R.id.lottie_icon);
         ConstraintLayout root = dialog.findViewById(R.id.root_layout);

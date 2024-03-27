@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="android.app.Dialog" />
+
+        <variable
+            name="listener"
+            type="com.saadahmedev.popupdialog.listener.StandardDialogActionListener" />
+
+        <variable
+            name="item"
+            type="com.saadahmedev.popupdialog.dto.AlertDialogData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_root"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_10"
+        android:padding="15dp">
+
+        <View
+            android:layout_width="270dp"
+            android:layout_height="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/bold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@{item.heading}"
+            android:textSize="16sp"
+            app:dialogTextColor="@{item.headingTextColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/regular"
+            android:text="@{item.description}"
+            android:textSize="14sp"
+            app:dialogTextColor="@{item.descriptionTextColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_heading" />
+
+        <TextView
+            android:id="@+id/btn_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/medium"
+            android:onClick="@{() -> listener.onPositiveButtonClicked(dialog)}"
+            android:text="@{item.positiveButtonText}"
+            android:textSize="15sp"
+            app:dialogTextColor="@{item.positiveButtonTextColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/btn_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/medium"
+            android:onClick="@{() -> listener.onNegativeButtonClicked(dialog)}"
+            android:text="@{item.negativeButtonText}"
+            android:textSize="15sp"
+            app:dialogTextColor="@{item.negativeButtonTextColor}"
+            app:layout_constraintEnd_toStartOf="@id/btn_positive"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
