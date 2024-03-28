@@ -1,3 +1,19 @@
+/*
+ * Copyright 2018-2024 Saad Ahmed
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.saadahmedev.popupdialog.base;
 
 import android.graphics.Typeface;
@@ -130,6 +146,7 @@ public class BaseStatusDialog<T, VB extends ViewDataBinding> extends BaseShapeGe
         if (background != null) {
             backgroundColor = null;
             backgroundCornerRadius = null;
+            ((DialogStatusBinding) binding).layoutRoot.setBackgroundResource(background);
         }
         else if (backgroundColor != null) {
             if (backgroundCornerRadius != null) {
@@ -139,11 +156,21 @@ public class BaseStatusDialog<T, VB extends ViewDataBinding> extends BaseShapeGe
                 backgroundBottomRightCornerRadius = backgroundCornerRadius;
             }
             else {
-                backgroundTopLeftCornerRadius = dimenToFloat(R.dimen.dp_5);
-                backgroundTopRightCornerRadius = dimenToFloat(R.dimen.dp_5);
-                backgroundBottomLeftCornerRadius = dimenToFloat(R.dimen.dp_5);
-                backgroundBottomRightCornerRadius = dimenToFloat(R.dimen.dp_5);
+                backgroundTopLeftCornerRadius = backgroundTopLeftCornerRadius == null ? dimenToFloat(R.dimen.dp_5) : backgroundTopLeftCornerRadius;
+                backgroundTopRightCornerRadius = backgroundTopRightCornerRadius == null ? dimenToFloat(R.dimen.dp_5) : backgroundTopRightCornerRadius;
+                backgroundBottomLeftCornerRadius = backgroundBottomLeftCornerRadius == null ? dimenToFloat(R.dimen.dp_5) : backgroundBottomLeftCornerRadius;
+                backgroundBottomRightCornerRadius = backgroundBottomRightCornerRadius == null ? dimenToFloat(R.dimen.dp_5) : backgroundBottomRightCornerRadius;
             }
+
+            ((DialogStatusBinding) binding).layoutRoot.setBackground(
+                    getBackground(
+                            backgroundColor,
+                            backgroundTopLeftCornerRadius,
+                            backgroundTopRightCornerRadius,
+                            backgroundBottomLeftCornerRadius,
+                            backgroundBottomRightCornerRadius
+                    )
+            );
         }
 
         ((DialogStatusBinding) binding).setDialog(super.getDialog());
