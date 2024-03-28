@@ -42,7 +42,7 @@
             android:singleLine="true"
             android:text="@{item.heading}"
             android:textSize="16sp"
-            app:dialogTextColor="@{item.headingTextColor}"
+            android:dialogTextColor="@{item.headingTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +55,7 @@
             android:fontFamily="@font/regular"
             android:text="@{item.description}"
             android:textSize="14sp"
-            app:dialogTextColor="@{item.descriptionTextColor}"
+            android:dialogTextColor="@{item.descriptionTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_heading" />
@@ -69,7 +69,7 @@
             android:onClick="@{() -> listener.onPositiveButtonClicked(dialog)}"
             android:text="@{item.positiveButtonText}"
             android:textSize="15sp"
-            app:dialogTextColor="@{item.positiveButtonTextColor}"
+            android:dialogTextColor="@{item.positiveButtonTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
@@ -83,7 +83,7 @@
             android:onClick="@{() -> listener.onNegativeButtonClicked(dialog)}"
             android:text="@{item.negativeButtonText}"
             android:textSize="15sp"
-            app:dialogTextColor="@{item.negativeButtonTextColor}"
+            android:dialogTextColor="@{item.negativeButtonTextColor}"
             app:layout_constraintEnd_toStartOf="@id/btn_positive"
             app:layout_constraintTop_toBottomOf="@id/tv_description" />
 

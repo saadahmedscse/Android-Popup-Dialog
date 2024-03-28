@@ -19,7 +19,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root_layout"
+        android:id="@+id/layout_root"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_white_10"
@@ -51,7 +51,7 @@
             android:gravity="center"
             android:text="@{item.heading}"
             android:textSize="22sp"
-            app:dialogTextColor="@{item.headingTextColor}"
+            android:dialogTextColor="@{item.headingTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lottie_icon" />
@@ -65,7 +65,7 @@
             android:gravity="center"
             android:text="@{item.description}"
             android:textSize="16sp"
-            app:dialogTextColor="@{item.descriptionTextColor}"
+            android:dialogTextColor="@{item.descriptionTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_heading" />
@@ -81,7 +81,7 @@
             android:onClick="@{() -> listener.onStatusActionClicked(dialog)}"
             android:text="@{item.actionButtonText}"
             android:textSize="16sp"
-            app:dialogTextColor="@{item.actionButtonTextColor}"
+            android:dialogTextColor="@{item.actionButtonTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_description" />

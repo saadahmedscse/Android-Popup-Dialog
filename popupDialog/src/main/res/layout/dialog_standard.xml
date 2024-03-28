@@ -37,7 +37,7 @@
             android:id="@+id/iv_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            app:dialogIcon="@{item.icon}"
+            android:popupIcon="@{item.icon}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
             android:gravity="center"
             android:text="@{item.heading}"
             android:textSize="22sp"
-            app:dialogTextColor="@{item.headingTextColor}"
+            android:dialogTextColor="@{item.headingTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_icon" />
@@ -66,7 +66,7 @@
             android:gravity="center"
             android:text="@{item.description}"
             android:textSize="16sp"
-            app:dialogTextColor="@{item.descriptionTextColor}"
+            android:dialogTextColor="@{item.descriptionTextColor}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_heading" />
@@ -103,7 +103,7 @@
                 android:onClick="@{() -> listener.onNegativeButtonClicked(dialog)}"
                 android:text="@{item.negativeButtonText}"
                 android:textSize="16sp"
-                app:dialogTextColor="@{item.negativeButtonTextColor}" />
+                android:dialogTextColor="@{item.negativeButtonTextColor}" />
 
             <TextView
                 android:id="@+id/btn_positive"
@@ -117,7 +117,7 @@
                 android:onClick="@{() -> listener.onPositiveButtonClicked(dialog)}"
                 android:text="@{item.positiveButtonText}"
                 android:textSize="16sp"
-                app:dialogTextColor="@{item.positiveButtonTextColor}" />
+                android:dialogTextColor="@{item.positiveButtonTextColor}" />
 
         </LinearLayout>
 
